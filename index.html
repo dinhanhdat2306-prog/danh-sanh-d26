@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thông tin trường Hàn - Kỳ tuyển sinh tháng 3/2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C0392B;
+    --red-dark: #96281B;
+    --red-light: #E74C3C;
+    --navy: #1a2340;
+    --navy-light: #243050;
+    --gold: #F39C12;
+    --white: #ffffff;
+    --gray-bg: #f5f7fa;
+    --gray-light: #ecf0f1;
+    --gray-text: #7f8c8d;
+    --shadow: 0 4px 20px rgba(0,0,0,0.1);
+    --shadow-hover: 0 8px 30px rgba(0,0,0,0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Be Vietnam Pro', sans-serif; background: var(--gray-bg); color: var(--navy); }
+  
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #2d3f6e 100%);
+    color: white; padding: 18px 20px; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .header-flag { font-size: 2rem; }
+  .header-title { flex: 1; }
+  .header-title h1 { font-size: 1.4rem; font-weight: 800; color: white; line-height: 1.2; }
+  .header-title p { font-size: 0.8rem; color: #aab8d4; font-weight: 400; margin-top: 2px; }
+  .badge {
+    background: var(--red); color: white; padding: 6px 14px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(192,57,43,0); }
+  }
+
+  /* NAV TABS */
+  .nav-wrapper {
+    background: var(--navy); border-bottom: 3px solid var(--red); position: sticky; top: 73px; z-index: 99;
+    overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--red) var(--navy);
+  }
+  .nav-wrapper::-webkit-scrollbar { height: 4px; }
+  .nav-wrapper::-webkit-scrollbar-track { background: var(--navy); }
+  .nav-wrapper::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+  .nav-tabs { display: flex; min-width: max-content; }
+  .nav-tab {
+    padding: 12px 16px; color: #aab8d4; font-size: 0.78rem; font-weight: 600;
+    cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent;
+    margin-bottom: -3px; transition: all 0.2s; user-select: none;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-tab:hover { color: white; background: rgba(255,255,255,0.06); }
+  .nav-tab.active { color: white; border-bottom-color: var(--red); background: rgba(192,57,43,0.15); }
+  .tab-num { 
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; background: var(--red); color: white;
+    border-radius: 4px; font-size: 0.65rem; font-weight: 800; margin-right: 5px;
+  }
+  .nav-tab.special { color: #F39C12; }
+  .nav-tab.special.active { border-bottom-color: #F39C12; background: rgba(243,156,18,0.1); }
+
+  /* CONTENT */
+  .content { max-width: 1400px; margin: 0 auto; padding: 24px 16px; }
+  .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+  .tab-panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SCHOOL PAGE */
+  .school-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 16px; padding: 28px; color: white; margin-bottom: 20px;
+    position: relative; overflow: hidden;
+  }
+  .school-hero::before {
+    content: ''; position: absolute; right: -40px; top: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: rgba(192,57,43,0.15); pointer-events: none;
+  }
+  .school-hero-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 52px; height: 52px; background: var(--red); border-radius: 12px;
+    font-size: 1.6rem; font-weight: 800; color: white; margin-bottom: 14px;
+  }
+  .school-hero h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 4px; }
+  .school-hero .korean { font-size: 1rem; color: #aab8d4; margin-bottom: 10px; }
+  .school-hero .location {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px;
+    font-size: 0.8rem; font-weight: 500;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .hero-badge {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 12px; border-radius: 12px; font-size: 0.73rem; color: #d0daf0;
+  }
+
+  /* INFO GRID */
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .info-card {
+    background: white; border-radius: 12px; padding: 20px;
+    box-shadow: var(--shadow); border-top: 4px solid var(--red);
+  }
+  .info-card h3 {
+    font-size: 0.85rem; font-weight: 700; color: var(--red); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+  }
+  .info-card h3::before {
+    content: ''; width: 4px; height: 16px; background: var(--red); border-radius: 2px;
+  }
+  .info-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--gray-light); font-size: 0.82rem; }
+  .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-label { color: var(--gray-text); font-weight: 500; flex: 0 0 130px; }
+  .info-value { font-weight: 600; text-align: right; color: var(--navy); flex: 1; }
+  .info-value a { color: var(--red); text-decoration: none; }
+  .info-value a:hover { text-decoration: underline; }
+
+  /* MAJORS */
+  .major-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .major-tag {
+    background: var(--gray-light); color: var(--navy); padding: 5px 12px;
+    border-radius: 8px; font-size: 0.75rem; font-weight: 500; border: 1px solid #dde3ec;
+  }
+  
+  /* MAP PAGE */
+  .map-container { background: white; border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
+  .map-container img { width: 100%; border-radius: 8px; display: block; }
+  .map-title { font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .map-title span { color: var(--red); }
+
+  /* SCHOOL LIST GRID */
+  .school-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 20px; }
+  .school-card {
+    background: white; border-radius: 10px; padding: 14px;
+    box-shadow: var(--shadow); cursor: pointer; transition: all 0.2s;
+    border-left: 4px solid var(--red); display: flex; align-items: center; gap: 10px;
+  }
+  .school-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); background: #fff9f9; }
+  .school-card-num {
+    width: 28px; height: 28px; background: var(--red); color: white; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 800; flex-shrink: 0;
+  }
+  .school-card-info { min-width: 0; }
+  .school-card-en { font-size: 0.75rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .school-card-kr { font-size: 0.68rem; color: var(--gray-text); margin-top: 2px; }
+
+  /* TAILIEU PAGE */
+  .tailieu-container { background: white; border-radius: 16px; padding: 20px; box-shadow: var(--shadow); }
+  .tailieu-container img { width: 100%; max-width: 800px; display: block; margin: 0 auto; border-radius: 8px; }
+
+  /* PAYMENT SECTION */
+  .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 20px 0; }
+  .payment-card {
+    border-radius: 12px; padding: 20px; text-align: center; color: white;
+    box-shadow: var(--shadow);
+  }
+  .payment-card:nth-child(1) { background: linear-gradient(135deg, #2980b9, #3498db); }
+  .payment-card:nth-child(2) { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+  .payment-card:nth-child(3) { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+  .payment-card:nth-child(4) { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+  .payment-card .dot-label { font-size: 0.75rem; opacity: 0.8; margin-bottom: 6px; font-weight: 600; }
+  .payment-card .amount { font-size: 1.8rem; font-weight: 800; margin: 8px 0; }
+  .payment-card .desc { font-size: 0.78rem; opacity: 0.9; line-height: 1.4; }
+
+  /* SECTION HEADER */
+  .section-header {
+    background: var(--red); color: white; padding: 10px 18px; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 700; margin: 24px 0 14px; display: flex; align-items: center; gap: 8px;
+  }
+
+  /* VN SCHOOL LIST */
+  .vn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+  .vn-item {
+    background: white; border-radius: 8px; padding: 10px 14px;
+    border-left: 3px solid var(--navy); font-size: 0.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .vn-num { width: 22px; height: 22px; background: var(--navy); color: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 800; flex-shrink: 0; }
+
+  /* ADVANTAGES */
+  .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .adv-item {
+    background: white; border-radius: 10px; padding: 16px;
+    box-shadow: var(--shadow); display: flex; gap: 12px; align-items: flex-start;
+  }
+  .adv-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .adv-text { font-size: 0.82rem; line-height: 1.5; color: var(--navy); font-weight: 500; }
+  .adv-text strong { color: var(--red); }
+
+  /* COST LIST */
+  .cost-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+  .cost-item {
+    background: white; padding: 10px 14px; border-radius: 8px;
+    font-size: 0.8rem; box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .cost-check { color: var(--red); font-size: 1rem; flex-shrink: 0; }
+
+  /* TIMELINE */
+  .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 14px 0; }
+  .tl-card {
+    background: white; border-radius: 10px; padding: 16px;
+    box-shadow: var(--shadow); border-top: 3px solid var(--red);
+  }
+  .tl-label { font-size: 0.7rem; color: var(--gray-text); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; }
+  .tl-value { font-size: 0.95rem; font-weight: 800; color: var(--navy); }
+  .tl-sub { font-size: 0.75rem; color: var(--gray-text); margin-top: 4px; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: linear-gradient(135deg, #fff5f5, #fff);
+    border: 1px solid #fdd;
+    border-left: 5px solid var(--red);
+    border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    font-size: 0.82rem; line-height: 1.6; color: var(--navy);
+  }
+  .highlight-box strong { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .school-hero h2 { font-size: 1.4rem; }
+    .header-title h1 { font-size: 1.1rem; }
+    .info-label { flex: 0 0 100px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-flag">🇰🇷</div>
+    <div class="header-title">
+      <h1>Thông tin trường Hàn Quốc</h1>
+      <p>Chương trình D2-6 – Liên kết CĐ/ĐH Việt Nam &amp; Hàn Quốc</p>
+    </div>
+    <div class="badge">🎓 Kỳ tháng 3/2027</div>
+  </div>
+</div>
+
+<div class="nav-wrapper">
+  <div class="nav-tabs" id="navTabs">
+    <div class="nav-tab special active" data-tab="map" onclick="showTab('map', this)">🗺️ Vị trí các trường</div>
+    <div class="nav-tab" data-tab="osan" onclick="showTab('osan', this)"><span class="tab-num">1</span>Osan</div>
+    <div class="nav-tab" data-tab="induk" onclick="showTab('induk', this)"><span class="tab-num">2</span>Induk</div>
+    <div class="nav-tab" data-tab="yeonsung" onclick="showTab('yeonsung', this)"><span class="tab-num">3</span>Yeonsung</div>
+    <div class="nav-tab" data-tab="sangmyung" onclick="showTab('sangmyung', this)"><span class="tab-num">4</span>Sangmyung</div>
+    <div class="nav-tab" data-tab="kyungin" onclick="showTab('kyungin', this)"><span class="tab-num">5</span>Nữ Sinh Kyungin</div>
+    <div class="nav-tab" data-tab="dongnam" onclick="showTab('dongnam', this)"><span class="tab-num">6</span>Y Tế Dongnam</div>
+    <div class="nav-tab" data-tab="dongeui" onclick="showTab('dongeui', this)"><span class="tab-num">7</span>DongEui</div>
+    <div class="nav-tab" data-tab="suncheon" onclick="showTab('suncheon', this)"><span class="tab-num">8</span>Suncheon Jeil</div>
+    <div class="nav-tab" data-tab="busanwomen" onclick="showTab('busanwomen', this)"><span class="tab-num">9</span>Nữ Sinh Busan</div>
+    <div class="nav-tab" data-tab="busancatholic" onclick="showTab('busancatholic', this)"><span class="tab-num">10</span>Busan Catholic</div>
+    <div class="nav-tab" data-tab="gimhae" onclick="showTab('gimhae', this)"><span class="tab-num">11</span>Gimhae</div>
+    <div class="nav-tab" data-tab="gwangju" onclick="showTab('gwangju', this)"><span class="tab-num">12</span>Gwangju</div>
+    <div class="nav-tab" data-tab="nambu" onclick="showTab('nambu', this)"><span class="tab-num">13</span>Nambu</div>
+    <div class="nav-tab" data-tab="daewon" onclick="showTab('daewon', this)"><span class="tab-num">14</span>Daewon</div>
+    <div class="nav-tab" data-tab="semyung" onclick="showTab('semyung', this)"><span class="tab-num">15</span>Semyung</div>
+    <div class="nav-tab" data-tab="dongduk" onclick="showTab('dongduk', this)">Nữ Sinh Dongduk</div>
+    <div class="nav-tab special" data-tab="tailieu" onclick="showTab('tailieu', this)">📋 Tài liệu chung</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- MAP TAB -->
+  <div class="tab-panel active" id="tab-map">
+    <div class="map-container">
+      <div class="map-title">🗺️ Vị trí <span>15 trường Hàn Quốc</span> – Chương trình D2-6</div>
+      <p style="text-align: center; color: #7f8c8d; margin: 20px 0;">📍 Bản đồ sẽ được cập nhật sớm</p>
+    </div>
+    <div class="school-list">
+      <div class="school-card" onclick="showTab('osan', document.querySelector('[data-tab=\'osan\']'))">
+        <div class="school-card-num">1</div>
+        <div class="school-card-info">
+          <div class="school-card-en">OSAN UNIVERSITY</div>
+          <div class="school-card-kr">오산대학교 · Gyeonggi-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('induk', document.querySelector('[data-tab=\'induk\']'))">
+        <div class="school-card-num">2</div>
+        <div class="school-card-info">
+          <div class="school-card-en">INDUK UNIVERSITY</div>
+          <div class="school-card-kr">인덕대학교 · Seoul</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('yeonsung', document.querySelector('[data-tab=\'yeonsung\']'))">
+        <div class="school-card-num">3</div>
+        <div class="school-card-info">
+          <div class="school-card-en">YEONSUNG UNIVERSITY</div>
+          <div class="school-card-kr">연성대학교 · Gyeonggi-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('sangmyung', document.querySelector('[data-tab=\'sangmyung\']'))">
+        <div class="school-card-num">4</div>
+        <div class="school-card-info">
+          <div class="school-card-en">SANGMYUNG UNIVERSITY</div>
+          <div class="school-card-kr">상명대학교 · Seoul</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('kyungin', document.querySelector('[data-tab=\'kyungin\']'))">
+        <div class="school-card-num">5</div>
+        <div class="school-card-info">
+          <div class="school-card-en">KYUNGIN WOMEN'S UNIVERSITY</div>
+          <div class="school-card-kr">경인여자대학교 · Incheon</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('dongnam', document.querySelector('[data-tab=\'dongnam\']'))">
+        <div class="school-card-num">6</div>
+        <div class="school-card-info">
+          <div class="school-card-en">DONGNAM HEALTH UNIVERSITY</div>
+          <div class="school-card-kr">동남보건대학교 · Gyeonggi-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('dongeui', document.querySelector('[data-tab=\'dongeui\']'))">
+        <div class="school-card-num">7</div>
+        <div class="school-card-info">
+          <div class="school-card-en">DONG-EUI UNIVERSITY</div>
+          <div class="school-card-kr">동의대학교 · Busan</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('suncheon', document.querySelector('[data-tab=\'suncheon\']'))">
+        <div class="school-card-num">8</div>
+        <div class="school-card-info">
+          <div class="school-card-en">SUNCHEON JEIL COLLEGE</div>
+          <div class="school-card-kr">순천제일대학교 · Jeollanam-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('busanwomen', document.querySelector('[data-tab=\'busanwomen\']'))">
+        <div class="school-card-num">9</div>
+        <div class="school-card-info">
+          <div class="school-card-en">BUSAN WOMEN'S COLLEGE</div>
+          <div class="school-card-kr">부산여자대학교 · Busan</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('busancatholic', document.querySelector('[data-tab=\'busancatholic\']'))">
+        <div class="school-card-num">10</div>
+        <div class="school-card-info">
+          <div class="school-card-en">CATHOLIC UNIVERSITY OF BUSAN</div>
+          <div class="school-card-kr">부산가톨릭대학교 · Busan</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('gimhae', document.querySelector('[data-tab=\'gimhae\']'))">
+        <div class="school-card-num">11</div>
+        <div class="school-card-info">
+          <div class="school-card-en">GIMHAE UNIVERSITY</div>
+          <div class="school-card-kr">김해대학교 · Gyeongsangnam-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('gwangju', document.querySelector('[data-tab=\'gwangju\']'))">
+        <div class="school-card-num">12</div>
+        <div class="school-card-info">
+          <div class="school-card-en">GWANGJU UNIVERSITY</div>
+          <div class="school-card-kr">광주대학교 · Gwangju</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('nambu', document.querySelector('[data-tab=\'nambu\']'))">
+        <div class="school-card-num">13</div>
+        <div class="school-card-info">
+          <div class="school-card-en">NAMBU UNIVERSITY</div>
+          <div class="school-card-kr">남부대학교 · Gwangju</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('daewon', document.querySelector('[data-tab=\'daewon\']'))">
+        <div class="school-card-num">14</div>
+        <div class="school-card-info">
+          <div class="school-card-en">DAEWON UNIVERSITY COLLEGE</div>
+          <div class="school-card-kr">대원대학교 · Chungcheongbuk-do</div>
+        </div>
+      </div>
+      <div class="school-card" onclick="showTab('semyung', document.querySelector('[data-tab=\'semyung\']'))">
+        <div class="school-card-num">15</div>
+        <div class="school-card-info">
+          <div class="school-card-en">SEMYUNG UNIVERSITY</div>
+          <div class="school-card-kr">세명대학교 · Chungcheongbuk-do</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OSAN UNIVERSITY TAB -->
+  <div class="tab-panel" id="tab-osan">
+    <div class="school-hero" style="background: linear-gradient(135deg, #C0392B22 0%, #C0392B11 100%); border: 1px solid #C0392B33;">
+      <div class="school-hero-num" style="background:#C0392B">1</div>
+      <h2 style="color:#C0392B">Osan University</h2>
+      <div class="korean">오산대학교</div>
+      <div class="location">📍 Osan, Gyeonggi-do</div>
+      <div class="hero-badges">
+        <div class="hero-badge">🎓 Cao đẳng (2-3 năm)</div>
+        <div class="hero-badge">📅 Thành lập 1997</div>
+        <div class="hero-badge">👥 ~10,000 sinh viên</div>
+        <div class="hero-badge">🏠 Có KTX trong khuôn viên</div>
+      </div>
+    </div>
+    
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Thông tin chung</h3>
+        <div class="info-item"><span class="info-label">Loại trường</span><span class="info-value">Cao đẳng (2-3 năm)</span></div>
+        <div class="info-item"><span class="info-label">Địa điểm</span><span class="info-value">Osan, Gyeonggi-do</span></div>
+        <div class="info-item"><span class="info-label">Thành lập</span><span class="info-value">1997</span></div>
+        <div class="info-item"><span class="info-label">Số sinh viên</span><span class="info-value">~10,000</span></div>
+        <div class="info-item"><span class="info-label">Website</span><span class="info-value"><a href="https://www.osan.ac.kr" target="_blank">www.osan.ac.kr ↗</a></span></div>
+      </div>
+      <div class="info-card">
+        <h3>Chi phí & Hỗ trợ</h3>
+        <div class="info-item"><span class="info-label">Học phí/năm</span><span class="info-value">~3.5 – 4.5 triệu KRW/năm</span></div>
+        <div class="info-item"><span class="info-label">Ký túc xá</span><span class="info-value">Có KTX trong khuôn viên</span></div>
+        <div class="info-item"><span class="info-label">Làm thêm</span><span class="info-value">Được phép làm thêm hợp pháp (tối đa 20h/tuần)</span></div>
+        <div class="info-item"><span class="info-label">Chương trình</span><span class="info-value">D2-6 – Visa du học</span></div>
+      </div>
+    </div>
+    
+    <div class="info-card" style="margin-bottom:20px">
+      <h3>Giới thiệu trường</h3>
+      <p style="font-size:0.85rem;line-height:1.7;color:#2c3e50;margin-bottom:12px">Trường Đại học Osan là một trong những trường hàng đầu tại tỉnh Gyeonggi-do, nổi tiếng với các chương trình đào tạo chất lượng cao và cơ sở vật chất hiện đại.</p>
+      <div class="highlight-box">💡 <strong>Lưu ý:</strong> Trường có đội ngũ hỗ trợ sinh viên Việt Nam, giúp đỡ từ thủ tục visa đến cuộc sống hàng ngày.</div>
+    </div>
+    
+    <div class="info-card">
+      <h3>Các ngành đào tạo chính</h3>
+      <div class="major-grid">
+        <div class="major-tag">📚 Thương mại quốc tế</div>
+        <div class="major-tag">📚 Công nghệ thông tin</div>
+        <div class="major-tag">📚 Điều dưỡng</div>
+        <div class="major-tag">📚 Thiết kế</div>
+        <div class="major-tag">📚 Khách sạn & Du lịch</div>
+        <div class="major-tag">📚 Kinh doanh</div>
+        <div class="major-tag">📚 Bảo mô trẻ em</div>
+        <div class="major-tag">📚 Hệ thống nhúng</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INDUK UNIVERSITY TAB -->
+  <div class="tab-panel" id="tab-induk">
+    <div class="school-hero" style="background: linear-gradient(135deg, #2980B922 0%, #2980B911 100%); border: 1px solid #2980B933;">
+      <div class="school-hero-num" style="background:#2980B9">2</div>
+      <h2 style="color:#2980B9">Induk University</h2>
+      <div class="korean">인덕대학교</div>
+      <div class="location">📍 Seoul (Nowon-gu)</div>
+      <div class="hero-badges">
+        <div class="hero-badge">🎓 Cao đẳng (2-3 năm)</div>
+        <div class="hero-badge">📅 Thành lập 1963</div>
+        <div class="hero-badge">👥 ~8,000 sinh viên</div>
+        <div class="hero-badge">🏠 Có hỗ trợ ký túc xá (hạn chế)</div>
+      </div>
+    </div>
+    
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Thông tin chung</h3>
+        <div class="info-item"><span class="info-label">Loại trường</span><span class="info-value">Cao đẳng (2-3 năm)</span></div>
+        <div class="info-item"><span class="info-label">Địa điểm</span><span class="info-value">Seoul (Nowon-gu)</span></div>
+        <div class="info-item"><span class="info-label">Thành lập</span><span class="info-value">1963</span></div>
+        <div class="info-item"><span class="info-label">Số sinh viên</span><span class="info-value">~8,000</span></div>
+        <div class="info-item"><span class="info-label">Website</span><span class="info-value"><a href="https://www.induk.ac.kr" target="_blank">www.induk.ac.kr ↗</a></span></div>
+      </div>
+      <div class="info-card">
+        <h3>Chi phí & Hỗ trợ</h3>
+        <div class="info-item"><span class="info-label">Học phí/năm</span><span class="info-value">~3.8 – 4.8 triệu KRW/năm</span></div>
+        <div class="info-item"><span class="info-label">Ký túc xá</span><span class="info-value">Có hỗ trợ ký túc xá (hạn chế)</span></div>
+        <div class="info-item"><span class="info-label">Làm thêm</span><span class="info-value">Được phép làm thêm hợp pháp tại Seoul</span></div>
+        <div class="info-item"><span class="info-label">Chương trình</span><span class="info-value">D2-6 – Visa du học</span></div>
+      </div>
+    </div>
+    
+    <div class="info-card" style="margin-bottom:20px">
+      <h3>Giới thiệu trường</h3>
+      <p style="font-size:0.85rem;line-height:1.7;color:#2c3e50;margin-bottom:12px">Trường Đại học Induk tọa lạc tại thành phố Seoul, một trong những trường có uy tín lâu đời tại Hàn Quốc.</p>
+      <div class="highlight-box">💡 <strong>Lưu ý:</strong> Vị trí tại Seoul là lợi thế lớn – cơ hội việc làm phong phú, dễ di chuyển bằng tàu điện ngầm.</div>
+    </div>
+    
+    <div class="info-card">
+      <h3>Các ngành đào tạo chính</h3>
+      <div class="major-grid">
+        <div class="major-tag">📚 Kỹ thuật điện – điện tử</div>
+        <div class="major-tag">📚 Kỹ thuật máy tính</div>
+        <div class="major-tag">📚 Thiết kế công nghiệp</div>
+        <div class="major-tag">📚 Kinh doanh</div>
+        <div class="major-tag">📚 Thương mại quốc tế</div>
+        <div class="major-tag">📚 Thời trang & Mỹ thuật</div>
+        <div class="major-tag">📚 Phúc lợi xã hội</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAILIEU TAB -->
+  <div class="tab-panel" id="tab-tailieu">
+    <div style="background: white; border-radius: 16px; padding: 20px; box-shadow: var(--shadow); margin-bottom: 20px;">
+      <div class="map-title">📋 Chương trình <span>Tuyển sinh Kỳ 3/2027</span> – D2-6</div>
+      <p style="text-align: center; color: #7f8c8d; margin-top: 20px;">📄 Tài liệu chung sẽ được cập nhật sớm</p>
+    </div>
+    
+    <div class="section-header">🏦 Lộ trình đóng tiền</div>
+    <div class="payment-grid">
+      <div class="payment-card">
+        <div class="dot-label">ĐỢT 1</div>
+        <div class="amount">30 triệu</div>
+        <div class="desc">Phí khởi tạo hồ sơ &amp; Xử lý hồ sơ</div>
+      </div>
+      <div class="payment-card">
+        <div class="dot-label">ĐỢT 2</div>
+        <div class="amount">30 triệu</div>
+        <div class="desc">Phí Invoice trường Việt Nam</div>
+      </div>
+      <div class="payment-card">
+        <div class="dot-label">ĐỢT 3</div>
+        <div class="amount">120 triệu</div>
+        <div class="desc">Invoice + KTX Hàn Quốc</div>
+      </div>
+      <div class="payment-card">
+        <div class="dot-label">ĐỢT 4</div>
+        <div class="amount">80 triệu</div>
+        <div class="desc">Còn lại – sau khi có Visa</div>
+      </div>
+    </div>
+    
+    <div class="section-header">📅 Thông tin tuyển sinh Kỳ 3/2027</div>
+    <div class="timeline-grid">
+      <div class="tl-card">
+        <div class="tl-label">📌 Ngày cuối nhận hồ sơ</div>
+        <div class="tl-value">08/11/2026</div>
+        <div class="tl-sub">Chủ Nhật</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-label">🎓 Ngày khai giảng đầu tiên</div>
+        <div class="tl-value">15/09/2026</div>
+        <div class="tl-sub">Lớp học tiếng Hàn</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-label">👥 Chỉ tiêu</div>
+        <div class="tl-value">3.000 hồ sơ</div>
+        <div class="tl-sub">Toàn chương trình</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-label">📋 Điều kiện mở lớp</div>
+        <div class="tl-value">20 SV tối thiểu</div>
+        <div class="tl-sub">Tại VN + 30 hồ sơ trường Hàn</div>
+      </div>
+    </div>
+    
+    <div class="section-header">✅ Lợi thế chương trình D2-6</div>
+    <div class="adv-grid">
+      <div class="adv-item">
+        <div class="adv-icon">🎖️</div>
+        <div class="adv-text"><strong>Chuyên ngành ưu quân sự</strong> vào trường CĐ/ĐH → Hoàn nghĩa vụ quân sự an toàn, chắc chắn</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">💼</div>
+        <div class="adv-text"><strong>Sinh viên được học tập, làm thêm hợp pháp</strong> sau khi có thẻ cư trú</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">📱</div>
+        <div class="adv-text"><strong>Hỗ trợ học tiếng tối đa</strong> – Duy nhất được học online tại trường CĐ/ĐH ở Việt Nam</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">📈</div>
+        <div class="adv-text"><strong>Đảm bảo đủ điều kiện lên chuyên ngành hợp pháp</strong> (6–12 tháng tùy trường)</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">📋</div>
+        <div class="adv-text"><strong>Dài hồ sơ nhận tuổi cao, GPA thấp</strong> – Điều kiện đầu vào linh hoạt</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-icon">💰</div>
+        <div class="adv-text"><strong>Không phát sinh chi phí</strong> ngoài các khoản đã công khai</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end content -->
+
+<script>
+function showTab(tabId, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  if (el) el.classList.add('active');
+  if (el) el.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>
